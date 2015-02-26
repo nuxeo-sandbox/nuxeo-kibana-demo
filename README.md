@@ -18,6 +18,7 @@ Edit the apache configuration files (set ServerName with your actual domain name
 Create a kibana user in apache
 
 ```
+sudo apt-get install apache2-utils
 sudo htpasswd -c /etc/apache2/passwords kibana
 ```
 
