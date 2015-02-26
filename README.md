@@ -15,6 +15,12 @@ git clone https://github.com/michaelva/nuxeo-demo-kibana4
 
 Edit the apache configuration files (set ServerName with your actual domain name)
 
+Create a kibana user in apache
+
+```
+sudo htpasswd -c /etc/apache2/passwords kibana
+```
+
 Download Kibana 4 (change the version in the script if necessary)
 
 ```
