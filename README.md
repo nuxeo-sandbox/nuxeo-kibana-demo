@@ -29,11 +29,11 @@ chmod 777 download.sh
 ./download.sh
 ```
 
-Install
+Run install script as root
 
 ```
 chmod 777 install.sh
-./install.sh
+sudo ./install.sh
 ```
 
 
