@@ -7,6 +7,22 @@ This repository contains configuration files and installation scripts to set up 
 
 Install the latest version of ES (see http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html)
 
+Edit nuxeo your nuxeo.conf file
+```
+sudo vim /etc/nuxeo/nuxeo.conf
+```
+
+Uncomment the following lines : 
+```
+elasticsearch.addressList=localhost:9300
+elasticsearch.clusterName=elasticsearch
+```
+
+Restart your nuxeo instance
+```
+sudo service nuxeo restart
+```
+
 Clone this repository 
 
 ```
