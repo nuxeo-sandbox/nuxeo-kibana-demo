@@ -26,6 +26,7 @@ sudo service nuxeo restart
 Clone this repository 
 
 ```
+cd /home/ubuntu
 git clone https://github.com/michaelva/nuxeo-demo-kibana4
 ```
 
