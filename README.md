@@ -27,7 +27,7 @@ Clone this repository
 
 ```
 cd /home/ubuntu
-git clone https://github.com/michaelva/nuxeo-demo-kibana4
+git clone https://github.com/nuxeo-sandbox/nuxeo-kibana4-demo
 ```
 
 Edit the apache configuration files (set ServerName with your actual domain name)
