@@ -42,7 +42,7 @@ sudo htpasswd -c /etc/apache2/passwords kibana
 * Download Kibana 4 (change the version in the script if necessary)
 
 ```
-cd nuxeo-demo-kibana4
+cd nuxeo-kibana4-demo
 chmod 777 download.sh
 ./download.sh
 ```
