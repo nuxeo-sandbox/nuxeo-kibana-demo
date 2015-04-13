@@ -30,7 +30,7 @@ cd /home/ubuntu
 git clone https://github.com/nuxeo-sandbox/nuxeo-kibana4-demo
 ```
 
-* Edit the apache configuration files in nuxeo-kibana4-demo/apache  (set ServerName with your actual domain name)
+* Edit the apache configuration files in nuxeo-kibana4-demo/apache  (set ServerName with your actual domain name: in the file, replace `host` with the name of the prospect, typically)
 
 * Create a kibana user in apache
 
@@ -54,6 +54,9 @@ chmod 777 install.sh
 sudo ./install.sh
 ```
 
+* Update the route 53 (on AWS), if relevant, so to add kibana.somename.cloud.nuxeo.com (with the exact same TNAME as somename.cloud.nuxeo.com)
+
+* To access kibana: just go to kibana.somename.cloud.nuxeo.com, use kibana as user, enter the password you set for this user.
 
 ## Important Note
 
