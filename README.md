@@ -5,41 +5,41 @@ This repository contains configuration files and installation scripts to set up 
 
 ## Build
 
-Install the latest version of ES (see http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html)
+* Install the latest version of ES (see http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html)
 
-Edit nuxeo your nuxeo.conf file
+* Edit nuxeo your nuxeo.conf file
 ```
 sudo vim /etc/nuxeo/nuxeo.conf
 ```
 
-Uncomment the following lines : 
+* Uncomment the following lines : 
 ```
 elasticsearch.addressList=localhost:9300
 elasticsearch.clusterName=elasticsearch
 ```
 
-Restart your nuxeo instance
+* Restart your nuxeo instance
 ```
 sudo service nuxeo restart
 ```
 
-Clone this repository 
+* Clone this GitHub repository 
 
 ```
 cd /home/ubuntu
 git clone https://github.com/nuxeo-sandbox/nuxeo-kibana4-demo
 ```
 
-Edit the apache configuration files (set ServerName with your actual domain name)
+* Edit the apache configuration files in nuxeo-kibana4-demo/apache  (set ServerName with your actual domain name)
 
-Create a kibana user in apache
+* Create a kibana user in apache
 
 ```
 sudo apt-get install apache2-utils
 sudo htpasswd -c /etc/apache2/passwords kibana
 ```
 
-Download Kibana 4 (change the version in the script if necessary)
+* Download Kibana 4 (change the version in the script if necessary)
 
 ```
 cd nuxeo-demo-kibana4
@@ -47,7 +47,7 @@ chmod 777 download.sh
 ./download.sh
 ```
 
-Run install script as root
+* Run install script as root
 
 ```
 chmod 777 install.sh
