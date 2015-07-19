@@ -7,12 +7,25 @@ This repository contains configuration files and installation scripts to set up 
 
 * Install the latest version of ES (see http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html)
 
+* Started elastic search is needed
+
+```
+# Assuming you let the defaut 9200 port
+# Check elasticsearch is installed:
+curl "http://localhost:9200"
+# Must return a value with status 200
+
+# To start elasticsearch:
+sudo service elasticsearch start
+```
+
 * Edit nuxeo your nuxeo.conf file
 ```
 sudo vim /etc/nuxeo/nuxeo.conf
 ```
 
-* Uncomment the following lines : 
+* Uncomment the following lines (and assuming you let the default value for clusters, 9300):
+
 ```
 elasticsearch.addressList=localhost:9300
 elasticsearch.clusterName=elasticsearch
