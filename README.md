@@ -71,6 +71,33 @@ sudo ./install.sh
 
 * To access kibana: just go to kibana.somename.cloud.nuxeo.com, use kibana as user, enter the password you set for this user.
 
+## Troubleshooting
+
+* After restarting nuxeo, and as long as you have a single node of elasticsearch, you will have a `WARN` in nuxeo's server.log at startup. Something like:
+
+```
+2015-07-19 14:59:44,950 WARN  [localhost-startStop-1] [org.nuxeo.elasticsearch.core.ElasticSearchAdminImpl] Es Cluster ready but not GREEN: {
+  "cluster_name" : "elasticsearch",
+  "status" : "yellow",
+  "timed_out" : false,
+  "number_of_nodes" : 1,
+  "number_of_data_nodes" : 1,
+  "active_primary_shards" : 5,
+  "active_shards" : 5,
+  "relocating_shards" : 0,
+  "initializing_shards" : 0,
+  "unassigned_shards" : 5,
+  "number_of_pending_tasks" : 0
+}
+```
+This is standard elasticsearch behavior.
+
+* On some configuration, we noticed that after the installation process, nuxeo server displays the Welcome Wizard again. If this is the case for you, then edit `nuxeo.conf` and delete all the lines (at the end of the file) after:
+
+```
+### END - DO NOT EDIT BETWEEN BEGIN AND END ###
+```
+
 ## Important Note
 
 **These features are not part of the Nuxeo Production platform.**
