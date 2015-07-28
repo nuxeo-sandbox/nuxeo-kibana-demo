@@ -67,6 +67,8 @@ chmod 777 install.sh
 sudo ./install.sh
 ```
 
+* If your instance already had some data, you must now [rebuild the Elasticsearch index](https://doc.nuxeo.com/display/ADMINDOC/Elasticsearch+Setup#ElasticsearchSetup-RebuildingtheIndexRebuildingtheIndex).
+
 * Update the route 53 (on AWS), if relevant, so to add kibana.somename.cloud.nuxeo.com (with the exact same TNAME as somename.cloud.nuxeo.com)
 
 * To access kibana: just go to kibana.somename.cloud.nuxeo.com, use kibana as user, enter the password you set for this user.
