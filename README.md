@@ -100,6 +100,22 @@ This is standard elasticsearch behavior.
 ### END - DO NOT EDIT BETWEEN BEGIN AND END ###
 ```
 
+## Upgrade
+
+To upgrade the kibana version, first delete or remove the existing folder
+
+```
+cd
+mv kibana kibana.old
+```
+
+Modify the version in download.sh, run the script and finally restart supervisor
+
+```
+sudo service supervisor restart
+```
+
+
 ## Important Note
 
 **These features are not part of the Nuxeo Production platform.**
