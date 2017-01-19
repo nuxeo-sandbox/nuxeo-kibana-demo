@@ -36,7 +36,7 @@ elasticsearch.clusterName=elasticsearch
 sudo service nuxeo restart
 ```
 
-* Clone this GitHub repository 
+* Clone this GitHub repository
 
 ```
 cd /home/ubuntu
@@ -44,6 +44,7 @@ git clone https://github.com/nuxeo-sandbox/nuxeo-kibana4-demo
 ```
 
 * Edit the apache configuration files in nuxeo-kibana4-demo/apache  (set ServerName with your actual domain name: in the file, replace `host` with the name of the prospect, typically)
+  * Make sure the Kibana URL is enabled in Route53
 
 * Create a kibana user in apache
 
