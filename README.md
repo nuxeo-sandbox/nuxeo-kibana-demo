@@ -1,17 +1,17 @@
-# Nuxeo Kibana 4 Demo
-===
+# Nuxeo Kibana For Demos
 
-This repository contains configuration files and installation scripts to set up a Kibana 4 server on an AWS Nuxeo demo instance
+This repository contains configuration files and installation scripts to set up a Kibana server on an AWS Nuxeo demo instance
 
-## Build
+# Prequisites
 
-* Install the latest version of ES (see http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html)
+*IMPORTANT* these steps are optional, standalone ES is not required.
 
-* Started elastic search is needed
+*Install the latest version of ES (see http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html)
+* Start elastic search is needed
 
 ```
-# Assuming you let the defaut 9200 port
-# Check elasticsearch is installed:
+# Assuming you used the defaut 9200 port
+# Check to see if elasticsearch is installed:
 curl "http://localhost:9200"
 # Must return a value with status 200
 
@@ -20,6 +20,7 @@ sudo service elasticsearch start
 ```
 
 * Edit nuxeo your nuxeo.conf file
+
 ```
 sudo vim /etc/nuxeo/nuxeo.conf
 ```
@@ -32,9 +33,12 @@ elasticsearch.clusterName=elasticsearch
 ```
 
 * Restart your nuxeo instance
+
 ```
 sudo service nuxeo restart
 ```
+
+# Install
 
 * Clone this GitHub repository
 
@@ -43,7 +47,8 @@ cd /home/ubuntu
 git clone https://github.com/nuxeo-sandbox/nuxeo-kibana4-demo
 ```
 
-* Edit the apache configuration files in nuxeo-kibana4-demo/apache  (set ServerName with your actual domain name: in the file, replace `host` with the name of the prospect, typically)
+* Edit the apache configuration files in nuxeo-kibana4-demo/apache:
+  * set ServerName with your actual domain name: in the file, replace `host` with the name of the prospect, typically
   * Make sure the Kibana URL is enabled in Route53
 
 * Create a kibana user in apache
@@ -53,7 +58,7 @@ sudo apt-get install apache2-utils
 sudo htpasswd -c /etc/apache2/passwords kibana
 ```
 
-* Download Kibana 4 (change the version in the script if necessary)
+* Download Kibana (change the version in the script if necessary)
 
 ```
 cd nuxeo-kibana4-demo
@@ -72,34 +77,13 @@ sudo ./install.sh
 
 * Update the route 53 (on AWS), if relevant, so to add kibana.somename.cloud.nuxeo.com (with the exact same TNAME as somename.cloud.nuxeo.com)
 
-* To access kibana: just go to kibana.somename.cloud.nuxeo.com, use kibana as user, enter the password you set for this user.
+* To access kibana:  go to kibana.somename.cloud.nuxeo.com, use `kibana` as user, enter the password you set for this user.
 
 ## Troubleshooting
 
-* After restarting nuxeo, and as long as you have a single node of elasticsearch, you will have a `WARN` in nuxeo's server.log at startup. Something like:
+* If using standalone Elasticsearch with less than three nodes, the Nuxeo server log will contain a warning about cluster health not being "GREEN". This is normal, an Elasticsearch cluster requires a minimum of 3 nodes to be GREEN.
 
-```
-2015-07-19 14:59:44,950 WARN  [localhost-startStop-1] [org.nuxeo.elasticsearch.core.ElasticSearchAdminImpl] Es Cluster ready but not GREEN: {
-  "cluster_name" : "elasticsearch",
-  "status" : "yellow",
-  "timed_out" : false,
-  "number_of_nodes" : 1,
-  "number_of_data_nodes" : 1,
-  "active_primary_shards" : 5,
-  "active_shards" : 5,
-  "relocating_shards" : 0,
-  "initializing_shards" : 0,
-  "unassigned_shards" : 5,
-  "number_of_pending_tasks" : 0
-}
-```
-This is standard elasticsearch behavior.
-
-* On some configuration, we noticed that after the installation process, nuxeo server displays the Welcome Wizard again. If this is the case for you, then edit `nuxeo.conf` and delete all the lines (at the end of the file) after:
-
-```
-### END - DO NOT EDIT BETWEEN BEGIN AND END ###
-```
+* On some configuration, we noticed that after the installation process, nuxeo server displays the Welcome Wizard again. If this is the case for you, then edit `nuxeo.conf` and set `nuxeo.wizard.done` to `true`.
 
 ## Upgrade
 
