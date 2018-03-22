@@ -4,10 +4,10 @@ This repository contains configuration files and installation scripts to set up 
 
 # Prequisites
 
-*IMPORTANT* these steps are optional, standalone ES is not required.
+**IMPORTANT:** these steps are optional, standalone ES is not required, embedded ES may be used.
 
-*Install the latest version of ES (see http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/setup-repositories.html)
-* Start elastic search is needed
+* Install the correct version of ES (see https://doc.nuxeo.com/nxdoc/compatibility-matrix/)
+* Start ES is needed
 
 ```
 # Assuming you used the defaut 9200 port
