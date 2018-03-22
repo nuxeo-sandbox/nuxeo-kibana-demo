@@ -1,9 +1,9 @@
 #!/bin/bash
 
-VERSION="4.5.4"
-ARCH="x64"
+VERSION="5.6.3"
+ARCH="x86_64"
 
 cd
-wget https://download.elasticsearch.org/kibana/kibana/kibana-$VERSION-linux-$ARCH.tar.gz
+wget https://artifacts.elastic.co/downloads/kibana/kibana-$VERSION-linux-$ARCH.tar.gz
 tar -xvf kibana-$VERSION-linux-$ARCH.tar.gz
 mv  kibana-$VERSION-linux-$ARCH kibana
