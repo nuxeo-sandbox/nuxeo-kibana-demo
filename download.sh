@@ -5,4 +5,4 @@ ARCH="x86_64"
 
 wget https://artifacts.elastic.co/downloads/kibana/kibana-oss-$VERSION-linux-$ARCH.tar.gz
 tar -xvf kibana-oss-$VERSION-linux-$ARCH.tar.gz
-mv  kibana-oss-$VERSION-linux-$ARCH kibana
+mv  kibana-$VERSION-linux-$ARCH kibana
