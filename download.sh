@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="5.6.3"
+VERSION="6.3.0"
 ARCH="x86_64"
 
 cd
