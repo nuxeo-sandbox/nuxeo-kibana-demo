@@ -2,7 +2,49 @@
 
 This repository contains configuration files and installation scripts to set up a Kibana server on an AWS Nuxeo demo instance
 
-# Prequisites
+# Install
+
+* Clone this GitHub repository
+
+```
+cd /home/ubuntu
+git clone https://github.com/nuxeo-sandbox/nuxeo-kibana4-demo
+```
+
+* Create a kibana user for apache
+
+```
+sudo apt-get install apache2-utils
+sudo htpasswd -c /etc/apache2/passwords kibana
+```
+
+* Use the sript to Download Kibana (change the version in the script if necessary)
+
+```
+cd nuxeo-kibana4-demo
+chmod 777 download.sh
+./download.sh
+```
+
+* Run install script as root
+  * You must pass the host name to `install.sh` (e.g. if the demo is `cool.cloud.nuxeo.com` pass `cool` as a param)
+
+*IMPORTANT* if using HTTPS, pass the option `https` to `install.sh`
+
+```
+chmod 777 install.sh
+sudo ./install.sh <myhost>
+# --or--
+sudo ./install.sh <myhost> https
+```
+
+* If your Nuxeo instance already had some data, you must now [rebuild the Elasticsearch index](https://doc.nuxeo.com/display/ADMINDOC/Elasticsearch+Setup#ElasticsearchSetup-RebuildingtheIndexRebuildingtheIndex).
+
+* Update Route53 (on AWS), if relevant, so to add kibana-somename.cloud.nuxeo.com (with the exact same TNAME as somename.cloud.nuxeo.com)
+
+* To access kibana:  go to kibana-somename.cloud.nuxeo.com, use `kibana` as user, enter the password you set for this user.
+
+# (Optional) Standalone Elasticsearch Setup
 
 **IMPORTANT:** these steps are optional, standalone ES is not required, embedded ES may be used.
 
@@ -38,58 +80,14 @@ elasticsearch.clusterName=elasticsearch
 sudo service nuxeo restart
 ```
 
-# Install
 
-* Clone this GitHub repository
-
-```
-cd /home/ubuntu
-git clone https://github.com/nuxeo-sandbox/nuxeo-kibana4-demo
-```
-
-* Edit the apache configuration files in nuxeo-kibana4-demo/apache:
-  * In each file, replace `myhost` with the name for your server
-  * Tip: Make sure the Kibana URL is enabled in Route53
-
-* Create a kibana user for apache
-
-```
-sudo apt-get install apache2-utils
-sudo htpasswd -c /etc/apache2/passwords kibana
-```
-
-* Download Kibana (change the version in the script if necessary)
-
-```
-cd nuxeo-kibana4-demo
-chmod 777 download.sh
-./download.sh
-```
-
-* Run install script as root
-
-*IMPORTANT* if using HTTPS, pass the option `https` to `install.sh`
-
-```
-chmod 777 install.sh
-sudo ./install.sh
-# --or--
-sudo ./install.sh https
-```
-
-* If your Nuxeo instance already had some data, you must now [rebuild the Elasticsearch index](https://doc.nuxeo.com/display/ADMINDOC/Elasticsearch+Setup#ElasticsearchSetup-RebuildingtheIndexRebuildingtheIndex).
-
-* Update Route53 (on AWS), if relevant, so to add kibana-somename.cloud.nuxeo.com (with the exact same TNAME as somename.cloud.nuxeo.com)
-
-* To access kibana:  go to kibana-somename.cloud.nuxeo.com, use `kibana` as user, enter the password you set for this user.
-
-## Troubleshooting
+# Troubleshooting
 
 * If using standalone Elasticsearch with less than three nodes, the Nuxeo server log will contain a warning about cluster health not being "GREEN". This is normal, an Elasticsearch cluster requires a minimum of 3 nodes to be GREEN.
 
 * On some configuration, we noticed that after the installation process, nuxeo server displays the Welcome Wizard again. If this is the case for you, then edit `nuxeo.conf` and set `nuxeo.wizard.done` to `true`.
 
-## Upgrade
+# Upgrade
 
 To upgrade the kibana version, first delete or remove the existing folder
 
