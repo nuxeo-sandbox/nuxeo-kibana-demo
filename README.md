@@ -2,6 +2,8 @@
 
 This repository contains configuration files and installation scripts to set up a Kibana server on an AWS Nuxeo demo instance
 
+Note: starting with version 6.3, Kibana includes X-Pack by default whereas the embdedded ElasticSearch server that Nuxeo uses does not. So this project now installs the "oss" version of Kibana, which doesn't include X-Pack.
+
 # Install
 
 * Clone this GitHub repository
