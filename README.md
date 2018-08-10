@@ -1,4 +1,4 @@
-# Nuxeo Kibana For Demos
+# About Nuxeo Kibana For Demos
 
 This repository contains configuration files and installation scripts to set up a Kibana server on an AWS Nuxeo demo instance
 
@@ -48,10 +48,10 @@ git clone https://github.com/nuxeo-sandbox/nuxeo-kibana4-demo
 ```
 
 * Edit the apache configuration files in nuxeo-kibana4-demo/apache:
-  * set ServerName with your actual domain name: in the file, replace `host` with the name of the prospect, typically
-  * Make sure the Kibana URL is enabled in Route53
+  * In each file, replace `myhost` with the name for your server
+  * Tip: Make sure the Kibana URL is enabled in Route53
 
-* Create a kibana user in apache
+* Create a kibana user for apache
 
 ```
 sudo apt-get install apache2-utils
@@ -68,16 +68,20 @@ chmod 777 download.sh
 
 * Run install script as root
 
+*IMPORTANT* if using HTTPS, pass the option `https` to `install.sh`
+
 ```
 chmod 777 install.sh
 sudo ./install.sh
+# --or--
+sudo ./install.sh https
 ```
 
-* If your instance already had some data, you must now [rebuild the Elasticsearch index](https://doc.nuxeo.com/display/ADMINDOC/Elasticsearch+Setup#ElasticsearchSetup-RebuildingtheIndexRebuildingtheIndex).
+* If your Nuxeo instance already had some data, you must now [rebuild the Elasticsearch index](https://doc.nuxeo.com/display/ADMINDOC/Elasticsearch+Setup#ElasticsearchSetup-RebuildingtheIndexRebuildingtheIndex).
 
-* Update the route 53 (on AWS), if relevant, so to add kibana.somename.cloud.nuxeo.com (with the exact same TNAME as somename.cloud.nuxeo.com)
+* Update Route53 (on AWS), if relevant, so to add kibana-somename.cloud.nuxeo.com (with the exact same TNAME as somename.cloud.nuxeo.com)
 
-* To access kibana:  go to kibana.somename.cloud.nuxeo.com, use `kibana` as user, enter the password you set for this user.
+* To access kibana:  go to kibana-somename.cloud.nuxeo.com, use `kibana` as user, enter the password you set for this user.
 
 ## Troubleshooting
 
@@ -101,14 +105,22 @@ sudo service supervisor restart
 ```
 
 
-## Important Note
+# Support
 
 **These features are not part of the Nuxeo Production platform.**
 
 These solutions are provided for inspiration and we encourage customers to use them as code samples and learning resources.
 
-## About Nuxeo
+This is a moving project (no API maintenance, no deprecation process, etc.) If any of these solutions are found to be useful for the Nuxeo Platform in general, they will be integrated directly into platform, not maintained here.
 
-Nuxeo provides a modular, extensible Java-based [open source software platform for enterprise content management](http://www.nuxeo.com/en/products/ep) and packaged applications for [document management](http://www.nuxeo.com/en/products/document-management), [digital asset management](http://www.nuxeo.com/en/products/dam) and [case management](http://www.nuxeo.com/en/products/case-management). Designed by developers for developers, the Nuxeo platform offers a modern architecture, a powerful plug-in model and extensive packaging capabilities for building content applications.
 
-More information at <http://www.nuxeo.com/>
+# Licensing
+
+[Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+
+
+# About Nuxeo
+
+Nuxeo dramatically improves how content-based applications are built, managed and deployed, making customers more agile, innovative and successful. Nuxeo provides a next generation, enterprise ready platform for building traditional and cutting-edge content oriented applications. Combining a powerful application development environment with SaaS-based tools and a modular architecture, the Nuxeo Platform and Products provide clear business value to some of the most recognizable brands including Verizon, Electronic Arts, Sharp, FICO, the U.S. Navy, and Boeing. Nuxeo is headquartered in New York and Paris.
+
+More information is available at [www.nuxeo.com](http://www.nuxeo.com).
