@@ -18,7 +18,7 @@ sudo apt-get install apache2-utils
 sudo htpasswd -c /etc/apache2/passwords kibana
 ```
 
-* Use the sript to Download Kibana (change the version in the script if necessary)
+* Use the script to Download Kibana (change the version in the script if necessary)
 
 ```
 cd nuxeo-kibana4-demo
