@@ -1,7 +1,16 @@
 #!/bin/bash
 
-# Pass `https` if you are using https
-if [[ $1 == https ]];
+# Pass the host name and, optionally, `https`
+if [ ! -z "$1" ] && [ "$1" != "https" ]
+then
+    host=$1
+else
+    echo 'usage: install.sh host_name [https]'
+    exit 1
+fi
+
+# If https use https config files
+if [[ $2 == https ]];
 then
     kibana_conf=apache/kibana-https.conf
     kibana_site=kibana-https
@@ -11,6 +20,9 @@ else
     kibana_site=kibana-https
     nuxeo_conf=apache/nuxeo.conf
 fi
+
+sed -i -e "s/myhost/$host/g" $kibana_conf
+sed -i -e "s/myhost/$host/g" $nuxeo_conf
 
 apt-get install apache2-utils supervisor -y
 a2enmod proxy_html
