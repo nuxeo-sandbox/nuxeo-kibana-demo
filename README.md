@@ -1,6 +1,6 @@
 # About Nuxeo Kibana For Demos
 
-This repository contains configuration files and installation scripts to set up a Kibana server on an AWS Nuxeo demo instance
+This repository contains configuration files and installation scripts to set up a Kibana server on an AWS Nuxeo demo instance.
 
 Note: starting with version 6.3, Kibana includes X-Pack by default whereas the embdedded ElasticSearch server that Nuxeo uses does not. So this project now installs the "oss" version of Kibana, which doesn't include X-Pack.
 
@@ -20,12 +20,16 @@ sudo apt-get install apache2-utils
 sudo htpasswd -c /etc/apache2/passwords kibana
 ```
 
-* Use the script to Download Kibana (change the version in the script if necessary)
+* Use the provided script to Download Kibana
+
+NOTE: to change the Kibana version pass the version to `download.sh`.
 
 ```
 cd nuxeo-kibana4-demo
 chmod 777 download.sh
 ./download.sh
+# --or--
+./download.sh <version>
 ```
 
 * Run install script as root
