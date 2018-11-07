@@ -1,10 +1,12 @@
 #!/bin/bash
 
-# Pass the host name and
-if [ ! -z "$1" ] then
+# Pass the host name
+if [ ! -z "$1" ]; then
     host=$1
-elif [ -z "$STACK_ID" ] then
+# Use the stack name env variable
+elif [ ! -z "$STACK_ID" ]; then
     host=$STACK_ID
+    echo "$host"
 else
     echo 'usage: install.sh host_name'
     exit 1
@@ -14,8 +16,8 @@ sed -i -e "s/myhost/$host/g" apache/kibana.conf
 
 apt-get install apache2-utils supervisor -y
 a2enmod proxy_html
-cp $kibana_conf /etc/apache2/sites-available/
-a2ensite $kibana_site
+cp apache/kibana.conf /etc/apache2/sites-available/
+a2ensite kibana
 service apache2 restart
 sudo cp supervisor/kibana.conf /etc/supervisor/conf.d/
 mkdir /var/log/kibana
