@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Pass the host name and, optionally, `https`
+# Pass the host name and
 if [ ! -z "$1" ]
 then
     host=$1
