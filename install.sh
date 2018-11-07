@@ -1,9 +1,10 @@
 #!/bin/bash
 
 # Pass the host name and
-if [ ! -z "$1" ]
-then
+if [ ! -z "$1" ] then
     host=$1
+elif [ -z "$STACK_ID" ] then
+    host=$STACK_ID
 else
     echo 'usage: install.sh host_name'
     exit 1
