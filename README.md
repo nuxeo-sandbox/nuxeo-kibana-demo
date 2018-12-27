@@ -33,15 +33,11 @@ chmod 777 download.sh
 ```
 
 * Run install script as root
-  * You must pass the host name to `install.sh` (e.g. if the demo is `cool.cloud.nuxeo.com` pass `cool` as a param)
-
-*IMPORTANT* if using HTTPS, pass the option `https` to `install.sh`
+  * You can pass the host name to `install.sh` (e.g. if the demo is `cool.cloud.nuxeo.com` pass `cool` as a param) if not already set in the STACK_ID env variable
 
 ```
 chmod 777 install.sh
-sudo ./install.sh <myhost>
-# --or--
-sudo ./install.sh <myhost> https
+sudo -E ./install.sh <myhost>
 ```
 
 * If your Nuxeo instance already had some data, you must now [rebuild the Elasticsearch index](https://doc.nuxeo.com/display/ADMINDOC/Elasticsearch+Setup#ElasticsearchSetup-RebuildingtheIndexRebuildingtheIndex).
