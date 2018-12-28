@@ -7,7 +7,12 @@ if [ ! -z "$1" ]
 then
     VERSION=$1
 else
-    VERSION="6.3.0"
+    ES_VERSION="$(sudo dpkg -l | grep elasticsearch | awk '{print $3}')"
+    if [ -z "$ES_VERSION" ]
+    then
+        VERSION="6.3.0"
+    else VERSION=$ES_VERSION
+    fi
 fi
 
 # Starting with version 6.3, Kibana includes X-Pack by default, whereas the
@@ -20,6 +25,8 @@ else
 fi
 
 ARCH="x86_64"
+
+echo "Version to download: $VERSION"
 
 cd
 wget https://artifacts.elastic.co/downloads/kibana/kibana$OSS-$VERSION-linux-$ARCH.tar.gz
