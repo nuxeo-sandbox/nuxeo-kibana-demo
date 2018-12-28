@@ -11,7 +11,17 @@ Note: starting with version 6.3, Kibana includes X-Pack by default whereas the e
 ```
 cd /home/ubuntu
 git clone https://github.com/nuxeo-sandbox/nuxeo-kibana4-demo
+cd nuxeo-kibana4-demo
 ```
+
+* Auto
+Let the script guess the kibana version to install as well as the host name for the apache config
+
+```
+chmod 777 auto.sh
+sudo -E ./auto.sh
+```
+
 
 * Create a kibana user for apache
 
