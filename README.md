@@ -34,6 +34,9 @@ sudo htpasswd -c /etc/apache2/passwords kibana
 
 NOTE: to change the Kibana version pass the version to `download.sh`.
 
+See Kibana documentation:
+> Kibana should be configured to run against an Elasticsearch node of the same version. This is the officially supported configuration.
+
 ```
 cd nuxeo-kibana4-demo
 chmod 777 download.sh
