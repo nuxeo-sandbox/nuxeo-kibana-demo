@@ -15,7 +15,7 @@ cd nuxeo-kibana4-demo
 ```
 
 * Auto
-Let the script guess the kibana version to install as well as the host name for the apache config
+Let the script guess the kibana version to install as well as the host name for the apache config. This will request the password you want for the `kibana` user.
 
 ```
 chmod 777 auto.sh
@@ -33,6 +33,9 @@ sudo htpasswd -c /etc/apache2/passwords kibana
 * Use the provided script to Download Kibana
 
 NOTE: to change the Kibana version pass the version to `download.sh`.
+
+See Kibana documentation:
+> Kibana should be configured to run against an Elasticsearch node of the same version. This is the officially supported configuration.
 
 ```
 cd nuxeo-kibana4-demo
