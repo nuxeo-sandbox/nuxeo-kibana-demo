@@ -32,3 +32,4 @@ cd
 wget https://artifacts.elastic.co/downloads/kibana/kibana$OSS-$VERSION-linux-$ARCH.tar.gz
 tar -xvf kibana$OSS-$VERSION-linux-$ARCH.tar.gz
 mv  kibana-$VERSION-linux-$ARCH kibana
+chown -R ubuntu:ubuntu kibana
