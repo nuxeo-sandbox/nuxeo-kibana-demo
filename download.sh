@@ -10,7 +10,7 @@ else
     ES_VERSION="$(sudo dpkg -l | grep elasticsearch | awk '{print $3}')"
     if [ -z "$ES_VERSION" ]
     then
-        VERSION="6.3.0"
+        VERSION="6.5.4"
     else VERSION=$ES_VERSION
     fi
 fi
