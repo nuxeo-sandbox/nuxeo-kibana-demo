@@ -6,7 +6,7 @@ Note: starting with version 6.3, Kibana includes X-Pack by default whereas the e
 
 # Install
 
-* Clone this GitHub repository
+### Clone this GitHub repository
 
 ```
 cd /home/ubuntu
@@ -14,7 +14,10 @@ git clone https://github.com/nuxeo-sandbox/nuxeo-kibana4-demo
 cd nuxeo-kibana4-demo
 ```
 
-* Auto
+### Easy Install: The `auto.sh` script
+
+**IMPORTANT**: This "auto" script contains the other parts: Create Kibana user for Apache, downolad.sh and then install.sh. If you need to change something, do it before running this script.
+
 Let the script guess the kibana version to install as well as the host name for the apache config. This will request the password you want for the `kibana` user.
 
 ```
@@ -23,14 +26,14 @@ sudo -E ./auto.sh
 ```
 
 
-* Create a kibana user for apache
+### Custom: Create a kibana user for apache
 
 ```
 sudo apt-get install apache2-utils
 sudo htpasswd -c /etc/apache2/passwords kibana
 ```
 
-* Use the provided script to Download Kibana
+### Custom: Use the provided script to Download Kibana
 
 NOTE: to change the Kibana version pass the version to `download.sh`.
 
@@ -45,7 +48,7 @@ chmod 777 download.sh
 ./download.sh <version>
 ```
 
-* Run install script as root
+### Custom: Run install script as root
   * You can pass the host name to `install.sh` (e.g. if the demo is `cool.cloud.nuxeo.com` pass `cool` as a param) if not already set in the STACK_ID env variable
 
 ```
