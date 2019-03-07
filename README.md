@@ -10,8 +10,8 @@ Note: starting with version 6.3, Kibana includes X-Pack by default whereas the e
 
 ```
 cd /home/ubuntu
-git clone https://github.com/nuxeo-sandbox/nuxeo-kibana4-demo
-cd nuxeo-kibana4-demo
+git clone https://github.com/nuxeo-sandbox/nuxeo-kibana-demo
+cd nuxeo-kibana-demo
 ```
 
 ### Easy Install: The `auto.sh` script
@@ -41,7 +41,7 @@ See Kibana documentation:
 > Kibana should be configured to run against an Elasticsearch node of the same version. This is the officially supported configuration.
 
 ```
-cd nuxeo-kibana4-demo
+cd nuxeo-kibana-demo
 chmod 777 download.sh
 ./download.sh
 # --or--
