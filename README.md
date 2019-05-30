@@ -9,6 +9,7 @@ Note: starting with version 6.3, Kibana includes X-Pack by default whereas the e
 ### Clone this GitHub repository
 
 ```
+sudo -E su ubuntu
 cd /home/ubuntu
 git clone https://github.com/nuxeo-sandbox/nuxeo-kibana-demo
 cd nuxeo-kibana-demo
