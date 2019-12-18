@@ -14,11 +14,10 @@ fi
 
 sed -i -e "s/myhost/$host/g" apache/kibana.conf
 
-certbot -q --apache --redirect --hsts --uir --agree-tos -m presales@nuxeo.com -d kibana-$host.cloud.nuxeo.com
-
 apt-get install apache2-utils supervisor -y
 a2enmod proxy_html
 cp apache/kibana.conf /etc/apache2/sites-available/
+certbot -q --apache --redirect --hsts --uir --agree-tos -m presales@nuxeo.com -d kibana-$host.cloud.nuxeo.com
 a2ensite kibana
 service apache2 restart
 sudo cp supervisor/kibana.conf /etc/supervisor/conf.d/
