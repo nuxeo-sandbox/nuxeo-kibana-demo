@@ -4,6 +4,11 @@ This repository contains configuration files and installation scripts to set up 
 
 Note: starting with version 6.3, Kibana includes X-Pack by default whereas the embdedded ElasticSearch server that Nuxeo uses does not. So this project now installs the "oss" version of Kibana, which doesn't include X-Pack.
 
+# Requirements
+
+* An EC2 instance created using the template from https://github.com/nuxeo/presales-vmdemo/tree/master/AWS-templates
+* Certbot for HTTPS, which should have been installed by the above
+
 # Install
 
 ### Clone this GitHub repository
@@ -25,7 +30,6 @@ Let the script guess the kibana version to install as well as the host name for 
 chmod 777 auto.sh
 sudo -E ./auto.sh
 ```
-
 
 ### Custom: Create a kibana user for apache
 
