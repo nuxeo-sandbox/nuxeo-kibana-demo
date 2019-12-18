@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Certbot is required and should have already been installed via the
+# CloudFormation template, but test just in case.
 if ! [ -x "$(command -v certbot)" ]; then
   echo 'Error: certbot is not installed.' >&2
   exit 1
